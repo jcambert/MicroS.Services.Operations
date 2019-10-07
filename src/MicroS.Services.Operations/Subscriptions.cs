@@ -19,29 +19,35 @@ namespace MicroS.Services.Operations
             typeof(OperationRejected)
         });
 
-        public static IBusSubscriber SubscribeAllMessages(this IBusSubscriber subscriber)
-            => subscriber.SubscribeAllCommands().SubscribeAllEvents();
+        public static IBusSubscriber SubscribeAllMessages(this IBusSubscriber subscriber,params Assembly[] assemblies)
+            => subscriber.SubscribeAllCommands(assemblies).SubscribeAllEvents(assemblies);
 
-        private static IBusSubscriber SubscribeAllCommands(this IBusSubscriber subscriber)
-            => subscriber.SubscribeAllMessages<ICommand>(nameof(IBusSubscriber.SubscribeCommand));
+        private static IBusSubscriber SubscribeAllCommands(this IBusSubscriber subscriber, params Assembly[] assemblies)
+            => subscriber.SubscribeAllMessages<ICommand>(nameof(IBusSubscriber.SubscribeCommand),assemblies);
 
-        private static IBusSubscriber SubscribeAllEvents(this IBusSubscriber subscriber)
-            => subscriber.SubscribeAllMessages<IEvent>(nameof(IBusSubscriber.SubscribeEvent));
+        private static IBusSubscriber SubscribeAllEvents(this IBusSubscriber subscriber, params Assembly[] assemblies)
+            => subscriber.SubscribeAllMessages<IEvent>(nameof(IBusSubscriber.SubscribeEvent),assemblies);
 
         private static IBusSubscriber SubscribeAllMessages<TMessage>
-            (this IBusSubscriber subscriber, string subscribeMethod)
+            (this IBusSubscriber subscriber, string subscribeMethod, params Assembly[] assemblies)
         {
-            var messageTypes = MessagesAssembly
+            var ass = new List<Assembly>(assemblies);
+            ass.Insert(0, MessagesAssembly);
+            ass.ForEach(assembly =>
+            {
+                var messageTypes = assembly
                 .GetTypes()
                 .Where(t => t.IsClass && typeof(TMessage).IsAssignableFrom(t))
                 .Where(t => !ExcludedMessages.Contains(t))
                 .ToList();
 
-            messageTypes.ForEach(mt => subscriber.GetType()
-                .GetMethod(subscribeMethod)
-                .MakeGenericMethod(mt)
-                .Invoke(subscriber,
-                    new object[] { mt.GetCustomAttribute<MessageNamespaceAttribute>()?.Namespace, null, null }));
+                messageTypes.ForEach(mt => subscriber.GetType()
+                    .GetMethod(subscribeMethod)
+                    .MakeGenericMethod(mt)
+                    .Invoke(subscriber,
+                        new object[] { mt.GetCustomAttribute<MessageNamespaceAttribute>()?.Namespace, null, null }));
+            });
+            
 
             return subscriber;
         }

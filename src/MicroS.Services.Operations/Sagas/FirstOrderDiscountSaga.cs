@@ -5,6 +5,8 @@ using MicroS.Services.Operations.Messages.Orders.Events;
 using MicroS_Common.RabbitMq;
 using System;
 using System.Threading.Tasks;
+using weerp.domain.Orders.Messsages.Commands;
+using weerp.domain.Orders.Messsages.Events;
 
 namespace MicroS.Services.Operations.Sagas
 {

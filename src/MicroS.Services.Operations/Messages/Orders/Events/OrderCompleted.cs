@@ -4,7 +4,7 @@ using System;
 
 namespace MicroS.Services.Operations.Messages.Orders.Events
 {
-    [MessageNamespace("orders")]
+   /* [MessageNamespace("orders")]
     public class OrderCompleted : IEvent
     {
         public Guid Id { get; }
@@ -16,5 +16,5 @@ namespace MicroS.Services.Operations.Messages.Orders.Events
             Id = id;
             CustomerId = customerId;
         }
-    }
+    }*/
 }

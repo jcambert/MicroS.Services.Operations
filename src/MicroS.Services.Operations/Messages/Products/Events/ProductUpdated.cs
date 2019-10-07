@@ -4,7 +4,7 @@ using System;
 
 namespace MicroS.Services.Operations.Messages.Products.Events
 {
-    [MessageNamespace("products")]
+   /* [MessageNamespace("products")]
     public class ProductUpdated : IEvent
     {
         public Guid Id { get; }
@@ -26,5 +26,5 @@ namespace MicroS.Services.Operations.Messages.Products.Events
             Price = price;
             Quantity = quantity;
         }
-    }
+    }*/
 }

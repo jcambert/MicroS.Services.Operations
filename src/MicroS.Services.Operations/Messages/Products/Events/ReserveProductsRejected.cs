@@ -4,7 +4,7 @@ using System;
 
 namespace MicroS.Services.Operations.Messages.Products.Events
 {
-    [MessageNamespace("products")]
+  /*  [MessageNamespace("products")]
     public class ReserveProductsRejected : IRejectedEvent
     {
         public Guid OrderId { get; }
@@ -18,5 +18,5 @@ namespace MicroS.Services.Operations.Messages.Products.Events
             Reason = reason;
             Code = code;
         }
-    }
+    }*/
 }

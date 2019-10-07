@@ -4,7 +4,7 @@ using System;
 
 namespace MicroS.Services.Operations.Messages.Products.Commands
 {
-    [MessageNamespace("products")]
+   /* [MessageNamespace("products")]
     public class UpdateProduct : ICommand
     {
         public Guid Id { get; }
@@ -26,5 +26,5 @@ namespace MicroS.Services.Operations.Messages.Products.Commands
             Price = price;
             Quantity = quantity;
         }
-    }
+    }*/
 }

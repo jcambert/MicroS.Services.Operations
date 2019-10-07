@@ -1,9 +1,9 @@
 ﻿using Chronicle;
-using MicroS.Services.Operations.Messages.Orders.Events;
-using MicroS.Services.Operations.Messages.Products.Commands;
-using MicroS.Services.Operations.Messages.Products.Events;
 using MicroS_Common.RabbitMq;
 using System.Threading.Tasks;
+using weerp.domain.Orders.Messsages.Events;
+using weerp.domain.Products.Messages.Commands;
+using weerp.domain.Products.Messages.Events;
 
 namespace MicroS.Services.Operations.Sagas
 {

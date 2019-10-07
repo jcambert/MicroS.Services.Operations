@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace MicroS.Services.Operations.Messages.Products.Commands
 {
-    [MessageNamespace("products")]
+   /* [MessageNamespace("products")]
     public class ReserveProducts : ICommand
     {
         public Guid OrderId { get; set; }
@@ -17,5 +17,5 @@ namespace MicroS.Services.Operations.Messages.Products.Commands
             OrderId = orderId;
             Products = products;
         }
-    }
+    }*/
 }

@@ -4,7 +4,7 @@ using System;
 
 namespace MicroS.Services.Operations.Messages.Orders.Commands
 {
-    public class RevokeOrder : ICommand
+    /*public class RevokeOrder : ICommand
     {
         public Guid Id { get; }
         public Guid CustomerId { get; }
@@ -15,5 +15,5 @@ namespace MicroS.Services.Operations.Messages.Orders.Commands
             Id = id;
             CustomerId = customerId;
         }
-    }
+    }*/
 }

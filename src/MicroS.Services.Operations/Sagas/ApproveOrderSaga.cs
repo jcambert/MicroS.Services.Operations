@@ -1,11 +1,11 @@
 ﻿using Chronicle;
-using MicroS.Services.Operations.Messages.Orders.Commands;
-using MicroS.Services.Operations.Messages.Orders.Events;
-using MicroS.Services.Operations.Messages.Products.Commands;
-using MicroS.Services.Operations.Messages.Products.Events;
 using MicroS_Common.RabbitMq;
 using System;
 using System.Threading.Tasks;
+using weerp.domain.Orders.Messsages.Commands;
+using weerp.domain.Orders.Messsages.Events;
+using weerp.domain.Products.Messages.Commands;
+using weerp.domain.Products.Messages.Events;
 
 namespace MicroS.Services.Operations.Sagas
 {
@@ -28,8 +28,8 @@ namespace MicroS.Services.Operations.Sagas
             switch (message)
             {
                 case OrderCreated m: return m.Id;
-                case ProductsReserved m: return m.OrderId;
-                case ReserveProductsRejected m: return m.OrderId;
+                case ProductsReserved m: return m.Id;
+                case ReserveProductsRejected m: return m.Id;
                 case OrderApproved m: return m.Id;
                 case ApproveOrderRejected m: return m.Id;
                 default: return base.ResolveId(message, context);
@@ -48,12 +48,12 @@ namespace MicroS.Services.Operations.Sagas
 
         public async Task HandleAsync(ProductsReserved message, ISagaContext context)
         {
-            await _busPublisher.SendAsync(new ApproveOrder(message.OrderId), CorrelationContext.Empty);
+            await _busPublisher.SendAsync(new ApproveOrder(message.Id), CorrelationContext.Empty);
         }
 
         public async Task CompensateAsync(ProductsReserved message, ISagaContext context)
         {
-            await _busPublisher.SendAsync(new ReleaseProducts(message.OrderId, message.Products),
+            await _busPublisher.SendAsync(new ReleaseProducts(message.Id, message.Products),
                 CorrelationContext.Empty);
         }
 

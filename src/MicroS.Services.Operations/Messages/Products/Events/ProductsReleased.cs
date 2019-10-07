@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace MicroS.Services.Operations.Messages.Products.Events
 {
-    [MessageNamespace("products")]
+   /* [MessageNamespace("products")]
     public class ProductsReleased : IEvent
     {
         public Guid OrderId { get; set; }
@@ -17,5 +17,5 @@ namespace MicroS.Services.Operations.Messages.Products.Events
             OrderId = orderId;
             Products = products;
         }
-    }
+    }*/
 }

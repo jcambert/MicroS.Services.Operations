@@ -4,7 +4,7 @@ using System;
 
 namespace MicroS.Services.Operations.Messages.Orders.Events
 {
-    public class OrderRevoked : IEvent
+  /*  public class OrderRevoked : IEvent
     {
         public Guid Id { get; }
         public Guid CustomerId { get; }
@@ -15,5 +15,5 @@ namespace MicroS.Services.Operations.Messages.Orders.Events
             Id = id;
             CustomerId = customerId;
         }
-    }
+    }*/
 }

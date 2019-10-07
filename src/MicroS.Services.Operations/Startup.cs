@@ -18,6 +18,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.Reflection;
+using weerp.domain;
 
 namespace MicroS.Services.Operations
 {
@@ -68,8 +69,7 @@ namespace MicroS.Services.Operations
             app.UseErrorHandler();
             app.UseServiceId();
             app.UseMvc();
-            app.UseRabbitMq()
-                .SubscribeAllMessages();
+            app.UseRabbitMq().SubscribeAllMessages(typeof(DomainProfile).Assembly);
 
             var consulServiceId = app.UseConsul();
             applicationLifetime.ApplicationStopped.Register(() =>

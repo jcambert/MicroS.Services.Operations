@@ -4,7 +4,7 @@ using System;
 
 namespace MicroS.Services.Operations.Messages.Orders.Commands
 {
-    [MessageNamespace("orders")]
+    /*[MessageNamespace("orders")]
     public class CreateOrder : ICommand
     {
         public Guid Id { get; }
@@ -16,5 +16,5 @@ namespace MicroS.Services.Operations.Messages.Orders.Commands
             Id = id;
             CustomerId = customerId;
         }
-    }
+    }*/
 }

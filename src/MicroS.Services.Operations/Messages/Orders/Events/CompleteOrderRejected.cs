@@ -4,7 +4,7 @@ using System;
 
 namespace MicroS.Services.Operations.Messages.Orders.Events
 {
-    [MessageNamespace("orders")]
+  /*  [MessageNamespace("orders")]
     public class CompleteOrderRejected : IRejectedEvent
     {
         public Guid Id { get; }
@@ -20,5 +20,5 @@ namespace MicroS.Services.Operations.Messages.Orders.Events
             Reason = reason;
             Code = code;
         }
-    }
+    }*/
 }

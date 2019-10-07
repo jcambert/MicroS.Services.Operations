@@ -4,7 +4,7 @@ using System;
 
 namespace MicroS.Services.Operations.Messages.Orders.Events
 {
-    public class RevokeOrderRejected : IRejectedEvent
+    /*public class RevokeOrderRejected : IRejectedEvent
     {
         public Guid Id { get; }
         public Guid CustomerId { get; }
@@ -19,5 +19,5 @@ namespace MicroS.Services.Operations.Messages.Orders.Events
             Reason = reason;
             Code = code;
         }
-    }
+    }*/
 }
