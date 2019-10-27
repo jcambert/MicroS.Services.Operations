@@ -26,7 +26,7 @@ namespace MicroS.Services.Operations.Sagas
         public Task HandleAsync(SettingCreated message, ISagaContext context)
         {
             Complete();
-            _logger.LogDebug("a setting was created");
+            _logger.LogInformation("a setting was created");
             return Task.CompletedTask;
         }
     }
