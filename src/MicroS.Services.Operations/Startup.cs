@@ -69,7 +69,8 @@ namespace MicroS.Services.Operations
             app.UseErrorHandler();
             app.UseServiceId();
             app.UseMvc();
-            app.UseRabbitMq().SubscribeAllMessages(typeof(DomainProfile).Assembly);
+            app.UseRabbitMq()
+                .SubscribeAllMessages(typeof(DomainProfile).Assembly);
 
             var consulServiceId = app.UseConsul();
             applicationLifetime.ApplicationStopped.Register(() =>

@@ -14,5 +14,9 @@
     <ProjectReference Include="..\..\..\MicroS-Common\src\MicroS-Common\MicroS-Common.csproj" />
     <ProjectReference Include="..\..\..\WeErp\weerp.domain\src\weerp.domain\weerp.domain.csproj" />
   </ItemGroup>
-
+  <ItemGroup>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
 </Project>

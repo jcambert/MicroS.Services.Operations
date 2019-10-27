@@ -1,7 +1,5 @@
-﻿using Chronicle;
+﻿ using Chronicle;
 using MicroS.Services.Operations.Messages.Customers.Events;
-using MicroS.Services.Operations.Messages.Orders.Commands;
-using MicroS.Services.Operations.Messages.Orders.Events;
 using MicroS_Common.RabbitMq;
 using System;
 using System.Threading.Tasks;
