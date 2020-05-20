@@ -1,8 +1,4 @@
-﻿using MicroS_Common.Messages;
-using Newtonsoft.Json;
-using System;
-
-namespace MicroS.Services.Operations.Messages.Orders.Events
+﻿namespace MicroS.Services.Operations.Messages.Orders.Events
 {
     /*public class RevokeOrderRejected : IRejectedEvent
     {

@@ -1,4 +1,4 @@
-﻿ using Chronicle;
+﻿using Chronicle;
 using MicroS.Services.Operations.Messages.Customers.Events;
 using MicroS_Common.RabbitMq;
 using System;

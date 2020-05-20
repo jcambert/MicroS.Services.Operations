@@ -1,25 +1,15 @@
-﻿using MicroS.Services.Operations.Dto;
-using MicroS.Services.Operations.Services;
-using MicroS_Common.Dispatchers;
-using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Threading.Tasks;
+﻿using MicroS_Common.Dispatchers;
+using MicroS_Common.Services.Operations.Controllers;
+using MicroS_Common.Services.Operations.Services;
+using Microsoft.Extensions.Configuration;
 
 namespace MicroS.Services.Operations.Controllers
 {
-    [Route("[controller]")]
-    public class OperationsController : BaseController
+
+    public class OperationsController : BaseOperationsController
     {
-        private readonly IOperationsStorage _operationsStorage;
+        public OperationsController(IDispatcher dispatcher, IConfiguration config, IOperationsStorage operationsStorage) : base(dispatcher, config, operationsStorage)
+        { }
 
-        public OperationsController(IDispatcher dispatcher,
-            IOperationsStorage operationsStorage) : base(dispatcher)
-        {
-            _operationsStorage = operationsStorage;
-        }
-
-        [HttpGet("{id}")]
-        public async Task<ActionResult<OperationDto>> Get(Guid id)
-            => Single(await _operationsStorage.GetAsync(id));
     }
 }

@@ -1,22 +1,18 @@
-﻿using MicroS_Common.Messages;
-using Newtonsoft.Json;
-using System;
-
-namespace MicroS.Services.Operations.Messages.Orders.Events
+﻿namespace MicroS.Services.Operations.Messages.Orders.Events
 {
- /*   [MessageNamespace("orders")]
-    public class ApproveOrderRejected : IRejectedEvent
-    {
-        public Guid Id { get; }
-        public string Reason { get; }
-        public string Code { get; }
+    /*   [MessageNamespace("orders")]
+       public class ApproveOrderRejected : IRejectedEvent
+       {
+           public Guid Id { get; }
+           public string Reason { get; }
+           public string Code { get; }
 
-        [JsonConstructor]
-        public ApproveOrderRejected(Guid id, string reason, string code)
-        {
-            Id = id;
-            Reason = reason;
-            Code = code;
-        }
-    }*/
+           [JsonConstructor]
+           public ApproveOrderRejected(Guid id, string reason, string code)
+           {
+               Id = id;
+               Reason = reason;
+               Code = code;
+           }
+       }*/
 }

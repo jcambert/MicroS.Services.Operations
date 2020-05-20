@@ -1,7 +1,6 @@
 ﻿using Chronicle;
 using MicroS_Common.RabbitMq;
 using Microsoft.Extensions.Logging;
-using System;
 using System.Threading.Tasks;
 using weerp.domain.Settings.Messages.Events;
 
@@ -13,7 +12,7 @@ namespace MicroS.Services.Operations.Sagas
         private readonly IBusPublisher _busPublisher;
         private readonly ILogger<SettingSaga> _logger;
 
-        public SettingSaga(IBusPublisher busPublisher,ILogger<SettingSaga> logger )
+        public SettingSaga(IBusPublisher busPublisher, ILogger<SettingSaga> logger)
         {
             this._busPublisher = busPublisher;
             this._logger = logger;

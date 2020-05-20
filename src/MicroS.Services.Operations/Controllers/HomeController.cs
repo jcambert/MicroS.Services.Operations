@@ -1,11 +1,15 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using MicroS_Common.Controllers;
+using MicroS_Common.Dispatchers;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 
 namespace MicroS.Services.Operations.Controllers
 {
     [Route("")]
-    public class HomeController : ControllerBase
+    public class HomeController : BaseController
     {
-        [HttpGet]
-        public IActionResult Get() => Ok("MicroSShop Operations Service");
+        public HomeController(IDispatcher dispatcher, IConfiguration configuration) : base(dispatcher, configuration)
+        {
+        }
     }
 }
